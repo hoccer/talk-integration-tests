@@ -19,7 +19,7 @@ import static com.google.code.tempusfugit.temporal.Duration.seconds;
 import static com.google.code.tempusfugit.temporal.WaitFor.waitOrTimeout;
 
 @RunWith(JUnit4.class)
-public class ITTwoClientsPairing extends IntegrationTest {
+public class ITTwoTalkClients extends IntegrationTest {
 
     private TestTalkServer firstServer;
 
@@ -63,7 +63,7 @@ public class ITTwoClientsPairing extends IntegrationTest {
         // ensure c1 is paired with c2
         waitOrTimeout(new Condition() {
             @Override
-            public boolean isSatisfied() {
+            public boolean isSatisfied()  {
                 try {
                     return c1.getDatabase().findContactByClientId(c2Id, false) != null;
                 } catch (SQLException e) {
@@ -75,7 +75,7 @@ public class ITTwoClientsPairing extends IntegrationTest {
         // ensure c2 is paired with c1
         waitOrTimeout(new Condition() {
             @Override
-            public boolean isSatisfied() {
+            public boolean isSatisfied()  {
                 try {
                     return c2.getDatabase().findContactByClientId(c1Id, false) != null;
                 } catch (SQLException e) {
@@ -87,4 +87,3 @@ public class ITTwoClientsPairing extends IntegrationTest {
     }
 
 }
-
