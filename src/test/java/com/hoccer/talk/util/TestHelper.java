@@ -5,6 +5,7 @@ import com.hoccer.talk.client.model.TalkClientContact;
 import com.hoccer.talk.client.model.TalkClientMessage;
 import com.hoccer.talk.model.TalkGroup;
 import com.hoccer.talk.model.TalkGroupMember;
+import org.apache.log4j.Logger;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
 import java.security.Security;
@@ -22,6 +23,8 @@ import static org.junit.Assert.*;
 
 
 public class TestHelper {
+
+    private static final Logger LOG = Logger.getLogger(TestHelper.class);
 
     public static XoClient createTalkClient(TestTalkServer server) throws Exception {
         if (Security.getProvider(BouncyCastleProvider.PROVIDER_NAME) == null) {
